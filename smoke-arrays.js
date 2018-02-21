@@ -4,13 +4,12 @@ var r = 0;
 var xArr = [];
 var yArr = [];
 var rArr = [];
-var xSpeed = 0;
 
 function setup() {
   createCanvas(400, 400);
   for (var i = 0; i < 100; i += 1) {
-  	xArr[i] = random(x - 30, x + 30);
-    yArr[i] = random(y, y + 40);
+  	xArr[i] = random(x - 15, x + 15);
+    yArr[i] = random(-150, y);
     rArr[i] = 0;
   }
 }
@@ -34,8 +33,8 @@ function draw() {
     pop();
 
     // up 3 pixels
-    yArr[i] -= random(1, 3);
-
+    yArr[i] -= random(3, 5);
+		xArr[i] += random(-1, 1);
     // rotate 0.05 radians ~= 2.8 degrees per frame
     rArr[i] += 0.05
 
