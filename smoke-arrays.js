@@ -4,6 +4,7 @@ var r = 0;
 var xArr = [];
 var yArr = [];
 var rArr = [];
+var xSpeed = [];
 
 function setup() {
   createCanvas(400, 400);
@@ -11,6 +12,7 @@ function setup() {
   	xArr[i] = random(x - 15, x + 15);
     yArr[i] = random(-150, y);
     rArr[i] = 0;
+    xSpeed[i] = random(-0.8, 0.8);
   }
 }
   
@@ -34,13 +36,14 @@ function draw() {
 
     // up 3 pixels
     yArr[i] -= random(3, 5);
-		xArr[i] += random(-1, 1);
+		xArr[i] += xSpeed[i];
     // rotate 0.05 radians ~= 2.8 degrees per frame
     rArr[i] += 0.05
 
     // if reach past the top a bunch
     if (yArr[i] < -150) {
       yArr[i] = 290;
+      xArr[i] = random(x - 15, x + 15);
     }
   }
 }
